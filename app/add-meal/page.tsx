@@ -3,14 +3,21 @@ import { SignedIn, SignedOut, RedirectToSignIn } from '@clerk/nextjs';
 import AddMeal from '../../src/features/meal/AddMeal';
 
 export default function AddMealPage() {
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
   return (
     <>
-      <SignedIn>
+      {publishableKey ? (
+        <>
+          <SignedIn>
+            <AddMeal />
+          </SignedIn>
+          <SignedOut>
+            <RedirectToSignIn />
+          </SignedOut>
+        </>
+      ) : (
         <AddMeal />
-      </SignedIn>
-      <SignedOut>
-        <RedirectToSignIn />
-      </SignedOut>
+      )}
     </>
   );
 }

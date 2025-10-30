@@ -8,6 +8,7 @@ import { useState } from 'react';
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
   function toggleMobileMenu() {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -63,6 +64,7 @@ export default function Header() {
               </span>
             </Link>
 
+            {publishableKey ? (
             <SignedIn>
               <Link href="/dashboard" className={navClass('/dashboard')}>
                 <span className="flex items-center gap-2">
@@ -83,10 +85,12 @@ export default function Header() {
                 </span>
               </Link>
             </SignedIn>
+            ) : null}
           </nav>
 
           <div className="flex items-center gap-3">
             <div className="hidden lg:flex gap-3 items-center">
+              {publishableKey ? (
               <SignedOut>
                 <Link
                   href="/login"
@@ -102,7 +106,9 @@ export default function Header() {
                   Sign Up
                 </Link>
               </SignedOut>
+              ) : null}
 
+              {publishableKey ? (
               <SignedIn>
                 <div className="relative">
                   <UserButton
@@ -124,6 +130,7 @@ export default function Header() {
                   <div className="absolute -top-1 -right-1 w-2 h-2 lg:w-3 lg:h-3 bg-gradient-to-r from-green-400 to-emerald-500 rounded-full animate-pulse"></div>
                 </div>
               </SignedIn>
+              ) : null}
             </div>
 
             <button
@@ -143,6 +150,7 @@ export default function Header() {
                 Home
               </Link>
 
+              {publishableKey ? (
               <SignedIn>
                 <Link href="/dashboard" onClick={closeMobileMenu} className="flex items-center gap-3 px-4 py-3 rounded-xl font-semibold transition-all duration-300 text-slate-700 hover:text-emerald-600 hover:bg-emerald-50">
                   <Zap className="w-5 h-5" />
@@ -157,8 +165,10 @@ export default function Header() {
                   Profile
                 </Link>
               </SignedIn>
+              ) : null}
 
               <div className="pt-4 border-t border-slate-200">
+                {publishableKey ? (
                 <SignedOut>
                   <div className="space-y-3">
                     <Link href="/login" onClick={closeMobileMenu} className="block w-full px-4 py-3 rounded-xl text-emerald-700 font-semibold border-2 border-emerald-200 hover:bg-gradient-to-r hover:from-emerald-50 hover:to-green-50 hover:border-emerald-300 transition-all duration-300 text-center">
@@ -170,7 +180,9 @@ export default function Header() {
                     </Link>
                   </div>
                 </SignedOut>
+                ) : null}
 
+                {publishableKey ? (
                 <SignedIn>
                   <div className="flex items-center justify-center">
                     <UserButton
@@ -191,6 +203,7 @@ export default function Header() {
                     />
                   </div>
                 </SignedIn>
+                ) : null}
               </div>
             </nav>
           </div>
