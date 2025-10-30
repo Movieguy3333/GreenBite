@@ -7,15 +7,23 @@ import '../src/App.css';
 import type { ReactNode } from 'react';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const publishableKey = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
   return (
     <html lang="en">
       <body>
-        <ClerkProvider publishableKey={process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}>
+        {publishableKey ? (
+          <ClerkProvider publishableKey={publishableKey}>
+            <UserContextProvider>
+              <Header />
+              {children}
+            </UserContextProvider>
+          </ClerkProvider>
+        ) : (
           <UserContextProvider>
             <Header />
             {children}
           </UserContextProvider>
-        </ClerkProvider>
+        )}
       </body>
     </html>
   );
