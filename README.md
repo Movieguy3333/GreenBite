@@ -35,7 +35,7 @@ Many people want to eat healthier and reduce their environmental impact, but lac
 | Type Safety | TypeScript | Enhanced developer experience and runtime error prevention |
 | State Management | React Context + useReducer | Built-in React patterns for predictable state management |
 | Backend | Next.js API Routes | Full-stack TypeScript with serverless deployment capabilities |
-| Database | PostgreSQL + Drizzle ORM | Relational data with type-safe queries and migrations |
+| Database | PostgreSQL | Relational data with type-safe queries and migrations |
 | Authentication | Clerk | Secure, scalable authentication with social login options |
 | AI Integration | OpenAI API | Natural language processing for meal parsing and carbon classification |
 | External APIs | USDA/Nutritionix | Comprehensive nutrition data for accurate food tracking |
@@ -97,7 +97,7 @@ The project currently includes:
 ### Upcoming Integrations
 
 As development progresses, we will add:
-- PostgreSQL database with Drizzle ORM
+- PostgreSQL database
 - Clerk authentication setup
 - OpenAI API integration
 - USDA/Nutritionix API integration
@@ -146,7 +146,7 @@ For bug reports or feature requests, please use the GitHub Issues tab.
 - [ ] Master full-stack TypeScript development with React and Next.js
 - [ ] Implement AI integration for natural language processing
 - [ ] Build comprehensive testing strategies with high coverage
-- [ ] Design scalable database schemas with Drizzle ORM
+- [ ] Design scalable database schemas
 - [ ] Create engaging data visualizations for user insights
 
 ## Author
